@@ -1,4 +1,5 @@
-![chrome-capture-2025-2-11 (1)](https://github.com/user-attachments/assets/eb903af1-b793-410d-b3e3-ffdeb413f509)
+![chrome-capture-2025-2-11](https://github.com/user-attachments/assets/d62cf289-82f5-4757-8ff5-fbeb3cbac747)
+
 
 💻 구현기능
 
