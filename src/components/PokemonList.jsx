@@ -16,17 +16,19 @@ export const PokemonList = (props) => {
 
   const addPokemon = (id) => {
     if (myPokemon.length >= 6) {
-      //alert("포켓몬은 6마리까지만 추가 할 수 있습니다!");
       Swal.fire("포켓몬은 6마리까지만 추가 할 수 있습니다!");
       return;
     }
     if (myPokemon.some((pokemon) => pokemon.id === id)) {
-      //alert("이미 추가된 포켓몬입니다!");
       Swal.fire("이미 추가된 포켓몬입니다!");
       return;
     }
 
     const addedPokemon = MOCK_DATA.filter((card) => card.id === id);
+    Toast.fire({
+      icon: "success",
+      title: "포켓몬을 선택했습니다.",
+    });
     setMyPokemon((prev) => [...prev, ...addedPokemon]);
     localStorage.setItem(
       "myPokemon",
@@ -34,22 +36,17 @@ export const PokemonList = (props) => {
     );
   };
 
-  // const Toast = Swal.mixin({
-  //   toast: true,
-  //   position: "top-end",
-  //   showConfirmButton: false,
-  //   timer: 3000,
-  //   timerProgressBar: true,
-  //   didOpen: (toast) => {
-  //     toast.onmouseenter = Swal.stopTimer;
-  //     toast.onmouseleave = Swal.resumeTimer;
-  //   },
-  // });
-
-  // Toast.fire({
-  //   icon: "success",
-  //   title: "Signed in successfully",
-  // });
+  const Toast = Swal.mixin({
+    toast: true,
+    position: "top-end",
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.onmouseenter = Swal.stopTimer;
+      toast.onmouseleave = Swal.resumeTimer;
+    },
+  });
 
   return (
     <StContainer>

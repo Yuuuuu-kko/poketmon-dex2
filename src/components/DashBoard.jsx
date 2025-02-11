@@ -5,7 +5,8 @@ import { PokemonCard } from "./PokemonCard";
 const StDashboardBox = styled.div`
   background-color: wheat;
   height: 30vh;
-  margin-top: 10px;
+  width: 100%;
+  margin-top: 0px;
 `;
 const StBox = styled.div`
   width: 100px;
@@ -20,8 +21,8 @@ const StBox = styled.div`
 `;
 const StBoxContainer = styled.div`
   display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
+  width: 100%;
+  justify-content: space-around;
 `;
 
 export const DashBoard = (props) => {
@@ -31,7 +32,12 @@ export const DashBoard = (props) => {
   let newArr = emptyArr?.map((e, i) => {
     return myPokemon[i] || 0;
   });
+
   const removePokemon = (id) => {
+    // Toast.fire({
+    //   icon: "success",
+    //   title: "포켓몬을 풀어주었습니다.",
+    // });
     const removePokemon = myPokemon.filter((card) => card.id !== id);
     setMyPokemon(removePokemon);
     localStorage.setItem("myPokemon", JSON.stringify(removePokemon));
